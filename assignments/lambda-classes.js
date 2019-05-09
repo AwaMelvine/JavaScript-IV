@@ -32,6 +32,7 @@ class Instructor extends Person {
   }
 }
 
+// Student Class
 class Student extends Person {
   constructor(object) {
     super(object);
@@ -52,5 +53,25 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     console.log(`${student.name} has begun sprint challenge on ${subject}`);
+  }
+}
+
+// ProjectManager Class
+
+class ProjectManager extends Person {
+  constructor(object) {
+    super(object);
+    this.gradClassName = object.gradClassName;
+    this.favInstructor = object.favInstructor;
+  }
+
+  standUp(channel) {
+    console.log(
+      `${this.name} announces to ${channel}, @channel standy times!​​​​​`
+    );
+  }
+
+  debugsCode(student, subject) {
+    console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
   }
 }
