@@ -75,3 +75,12 @@ class ProjectManager extends Person {
     console.log(`${this.name} debugs ${student.name}'s code on ${subject}`);
   }
 }
+
+const boy = new Person({
+  name: "Bob",
+  location: "Lagos",
+  age: "20",
+  gender: "Male"
+});
+console.log(boy.name); // outputs 'Bob' to the console
+console.log(boy.speak()); // outputs 'Hello my name is Bob, I am from Lagos'
