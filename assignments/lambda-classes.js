@@ -30,6 +30,19 @@ class Instructor extends Person {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+
+  modifyGrade(student) {
+    const points = Math.floor(Math.random() * 10);
+    const signTest = Math.floor(Math.random() * 10);
+
+    if (signTest < 5) {
+      student.grade = student.grade - points;
+    } else {
+      student.grade = 1 * student.grade + 1 * points;
+    }
+
+    console.log(`${student.name}'s new grade is ${student.grade}`);
+  }
 }
 
 // Student Class
@@ -39,6 +52,7 @@ class Student extends Person {
     this.previousBackground = object.previousBackground;
     this.className = object.className;
     this.favSubjects = object.favSubjects;
+    this.grade = 98;
   }
 
   listsSubjects() {
@@ -58,7 +72,7 @@ class Student extends Person {
 
 // ProjectManager Class
 
-class ProjectManager extends Person {
+class ProjectManager extends Instructor {
   constructor(object) {
     super(object);
     this.gradClassName = object.gradClassName;
@@ -135,4 +149,7 @@ console.log(pm.name); // outputs 'Dave'
 pm.standUp("webeu2"); // outputs 'Dave announces to webeu2, @channel standy times!​​​​​'
 pm.debugsCode(student, "React"); // outputs "Dave debugs Sam's code on React"
 
-
+// Test Stretch Goals
+console.log(student.grade); // outputs 98
+instructor.modifyGrade(student); // ouputs "Sam's new grade is 97"
+pm.modifyGrade(student); // outputs "Sam's new grade is 102"
