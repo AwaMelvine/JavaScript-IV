@@ -120,3 +120,12 @@ console.log(boy.speak()); // outputs 'Hello my name is Bob, I am from Lagos'
 console.log(instructor.name); // outputs 'John'
 instructor.demo("React"); // outputs 'Today we are learning about React'
 instructor.grade(student, "Git"); // outputs 'Sam receives a perfect score on Git'
+
+// Testing Student Class
+console.log(student.name); // outputs 'Sam'
+student.listsSubjects(); /*outputs:
+                            1 - Html
+                            2 - CSS 
+                            3 - JavaScript */
+student.PRAssignment("CSS"); // outputs 'Sam has submitted a PR for CSS'
+student.sprintChallenge("Advanced CSS"); // Sam has begun sprint challenge on Advanced CSS
