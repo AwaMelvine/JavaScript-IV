@@ -61,24 +61,22 @@ class CharacterStats extends GameObject {
   * team
   * weapons
   * language
-  * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+  * greet() // method -> returns the string '<object name> offers a greeting in <object language>.'
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
 
-function Humanoid(args) {
-  CharacterStats.call(this, args);
-  this.team = args.team;
-  this.weapons = args.weapons;
-  this.language = args.language;
+class Humanoid extends CharacterStats {
+  constructor(obj) {
+    super(obj);
+    this.team = obj.team;
+    this.weapons = obj.weapons;
+    this.language = obj.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
 }
-
-Humanoid.prototype = Object.create(CharacterStats.prototype);
-
-Humanoid.prototype.greet = function(args) {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
-
 /*
  * Inheritance chain: GameObject -> CharacterStats -> Humanoid
  * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
@@ -144,8 +142,8 @@ console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
 // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.
 // * Give the Hero and Villains different methods that could be used to remove health points from objects which could result in destruction if health gets to 0 or drops below 0;
 // * Create two new objects, one a villain and one a hero and fight it out with methods!
-function Villain(args) {
-  Humanoid.call(this, args);
+function Villain(obj) {
+  Humanoid.call(this, obj);
 }
 Villain.prototype.removePoints = function(points) {
   this.healthPoints = this.healthPoints - points;
@@ -157,8 +155,8 @@ Villain.prototype.removePoints = function(points) {
   } left, Villain`;
 };
 
-function Hero(args) {
-  Humanoid.call(this, args);
+function Hero(obj) {
+  Humanoid.call(this, obj);
 }
 
 Hero.prototype.removePoints = function(points) {
