@@ -82,5 +82,41 @@ const boy = new Person({
   age: "20",
   gender: "Male"
 });
+
+const student = new Student({
+  name: "Sam",
+  location: "Nigeria",
+  age: "22",
+  gender: "Male",
+  previousBackground: "PHP",
+  className: "CS132",
+  favSubjects: ["Html", "CSS", "JavaScript"]
+});
+
+const instructor = new Instructor({
+  name: "John",
+  location: "London",
+  age: "30",
+  gender: "Male",
+  specialty: "React",
+  favLanguage: "JavaScript",
+  catchPhrase: "Don't forget the homies"
+});
+
+const pm = new ProjectManager({
+  name: "Dave",
+  location: "New York",
+  age: "35",
+  gender: "Male",
+  gradClassName: "CS1",
+  favInstructor: "Sean"
+});
+
+// Testing Person Class
 console.log(boy.name); // outputs 'Bob' to the console
 console.log(boy.speak()); // outputs 'Hello my name is Bob, I am from Lagos'
+
+// Testing Instructor Class
+console.log(instructor.name); // outputs 'John'
+instructor.demo("React"); // outputs 'Today we are learning about React'
+instructor.grade(student, "Git"); // outputs 'Sam receives a perfect score on Git'
