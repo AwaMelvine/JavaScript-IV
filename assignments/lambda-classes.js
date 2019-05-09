@@ -38,7 +38,9 @@ class Instructor extends Person {
     if (signTest < 5) {
       student.grade = student.grade - points;
     } else {
-      student.grade = 1 * student.grade + 1 * points;
+      if (this.grade * 1 + points < 100) {
+        student.grade = 1 * student.grade + 1 * points;
+      }
     }
 
     console.log(`${student.name}'s new grade is ${student.grade}`);
@@ -52,7 +54,7 @@ class Student extends Person {
     this.previousBackground = object.previousBackground;
     this.className = object.className;
     this.favSubjects = object.favSubjects;
-    this.grade = 98;
+    this.grade = 70;
   }
 
   listsSubjects() {
@@ -67,6 +69,15 @@ class Student extends Person {
 
   sprintChallenge(subject) {
     console.log(`${student.name} has begun sprint challenge on ${subject}`);
+  }
+  graduate() {
+    if (this.grade < 70) {
+      console.log(`Sorry ${this.name} you do not qualify to graduate`);
+    } else {
+      console.log(
+        `Congratulations ${this.name}, you have graduated from Lambda!!`
+      );
+    }
   }
 }
 
@@ -150,6 +161,7 @@ pm.standUp("webeu2"); // outputs 'Dave announces to webeu2, @channel standy time
 pm.debugsCode(student, "React"); // outputs "Dave debugs Sam's code on React"
 
 // Test Stretch Goals
-console.log(student.grade); // outputs 98
-instructor.modifyGrade(student); // ouputs "Sam's new grade is 97"
-pm.modifyGrade(student); // outputs "Sam's new grade is 102"
+console.log(student.grade); // outputs 70
+instructor.modifyGrade(student); // ouputs "Sam's new grade is 77"
+pm.modifyGrade(student); // outputs "Sam's new grade is 71"
+student.graduate(); // outputs "Congratulations Sam, you have graduated from Lambda!!"
