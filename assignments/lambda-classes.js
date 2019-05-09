@@ -129,3 +129,10 @@ student.listsSubjects(); /*outputs:
                             3 - JavaScript */
 student.PRAssignment("CSS"); // outputs 'Sam has submitted a PR for CSS'
 student.sprintChallenge("Advanced CSS"); // Sam has begun sprint challenge on Advanced CSS
+
+// Testing ProjectManager class
+console.log(pm.name); // outputs 'Dave'
+pm.standUp("webeu2"); // outputs 'Dave announces to webeu2, @channel standy times!​​​​​'
+pm.debugsCode(student, "React"); // outputs "Dave debugs Sam's code on React"
+
+
